@@ -1,5 +1,7 @@
 import './styles/globals.css';
 import './index.css';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Components
 import Navigation from './components/Navigation';
@@ -66,6 +68,10 @@ const Portfolio = () => {
 
       {/* Scroll to top button */}
       <ScrollToTop scrollY={scrollY} />
+
+      {/* Analytics & Speed Insights for Vercel*/}
+      <SpeedInsights />
+      <Analytics />
     </div>
   );
 };
