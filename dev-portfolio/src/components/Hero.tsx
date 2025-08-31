@@ -29,11 +29,6 @@ const Hero = ({ typedText, scrollToSection }: HeroProps) => {
             <span className="animate-pulse text-indigo-400">|</span>
           </span>
         </div>
-        
-        {/* <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-          Passionate Software Engineer with almost 2 years of experience at Cybage Software, 
-          specializing in React, .NET, and GraphQL. I love building solutions that make a difference.
-        </p> */}
         <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
           Passionate Software Engineer with almost 2 years of experience at{" "}
           <a

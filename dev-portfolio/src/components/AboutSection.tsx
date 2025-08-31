@@ -13,13 +13,13 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-700 leading-relaxed">
-              I'm a passionate software developer who believes in creating meaningful digital experiences. 
-              My journey at Cybage Software has been filled with continuous learning and exciting challenges.
+              I'm a dedicated Software Engineer with nearly 2 years of experience at Cybage Software, where I've had the opportunity to work on both frontend and backend technologies. 
+              I believe in building digital products that are not only functional but also intuitive and user-centric.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Currently, I'm working on a cutting-edge B2B clothing platform that's transforming how fashion 
-              brands connect and conduct business. I enjoy solving complex problems and turning ideas into 
-              reality through clean, efficient code.
+              Currently, I’m contributing to a B2B clothing platform that’s redefining how fashion brands connect and do business. 
+              I work across the full stack using multiple technologies focusing on writing clean, maintainable code and solving real-world problems.
+              I solve complex problems by writing clean, maintainable code that not only works but also provides a great user experience. I love to build products that are not only functional but also intuitive and user-centric
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
               When I'm not coding, you'll find me exploring new technologies, reading tech blogs, 
