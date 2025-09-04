@@ -34,7 +34,7 @@ const AboutSection = () => {
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">1+</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">1.5+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
