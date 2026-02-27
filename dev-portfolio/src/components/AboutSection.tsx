@@ -13,7 +13,7 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-700 leading-relaxed">
-              I'm a dedicated Software Engineer with nearly 2 years of experience at Cybage Software, where I've had the opportunity to work on both frontend and backend technologies. 
+              I'm a dedicated Software Engineer with almost 2.5 years of experience at Cybage Software, where I've had the opportunity to work on both frontend and backend technologies. 
               I believe in building digital products that are not only functional but also intuitive and user-centric.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
@@ -34,7 +34,7 @@ const AboutSection = () => {
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">2.3+</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
