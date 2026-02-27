@@ -16,7 +16,8 @@ export const skills: Skill[] = [
   { name: "SQL Server", level: 83, category: "Database", color: "gray" },
   { name: "PostgreSQL", level: 78, category: "Database", color: "blue" },
   { name: "GitHub", level: 90, category: "Tools", color: "gray" },
-  { name: "AWS", level: 70, category: "Tools", color: "orange" }
+  { name: "AWS", level: 70, category: "Tools", color: "orange" },
+  { name: "S3", level: 75, category: "Tools", color: "yellow" }
 ];
 
 export const getSkillColorClasses = (color: string): string => {

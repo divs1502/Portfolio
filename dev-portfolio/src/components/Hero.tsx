@@ -30,7 +30,7 @@ const Hero = ({ typedText, scrollToSection }: HeroProps) => {
           </span>
         </div>
         <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-          Passionate Software Engineer with 2+ years of experience at{" "}
+          Passionate Software Engineer with 2.5 years of experience at{" "}
           <a
             href="https://www.linkedin.com/company/cybage/"
             target="_blank"
@@ -39,7 +39,7 @@ const Hero = ({ typedText, scrollToSection }: HeroProps) => {
           >
             Cybage Software
           </a>
-          , specializing in React, .NET, and GraphQL. I love building solutions that make a difference.
+          , specializing in React, .NET, PostgreSQL and GraphQL. I love building solutions that make a difference.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
