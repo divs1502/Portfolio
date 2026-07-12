@@ -30,7 +30,7 @@ const Hero = ({ typedText, scrollToSection }: HeroProps) => {
           </span>
         </div>
         <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-          Passionate Software Engineer with 2.5 years of experience at{" "}
+          Passionate Software Engineer with almost 3 years of experience at{" "}
           <a
             href="https://www.linkedin.com/company/cybage/"
             target="_blank"
