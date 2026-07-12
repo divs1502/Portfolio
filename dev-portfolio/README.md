@@ -165,6 +165,11 @@ This project follows accessibility best practices:
 npm run build
 ```
 
+### Run locally for development
+```bash
+npm run start
+```
+
 ### Deploy to Vercel (Recommended)
 
 1. Install Vercel CLI:
