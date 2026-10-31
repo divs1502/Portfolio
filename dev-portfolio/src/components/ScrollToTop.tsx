@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { scrollToTop } from '../utils/scrollUtils';
 
 interface ScrollToTopProps {
@@ -11,10 +11,10 @@ const ScrollToTop = ({ scrollY }: ScrollToTopProps) => {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition-colors z-40 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
       aria-label="Scroll to top"
+      className="fixed bottom-6 right-6 p-2.5 bg-surface-overlay ring-1 ring-line text-ink-muted rounded-lg hover:text-ink hover:ring-line-strong transition-all duration-150 z-40"
     >
-      <ChevronDown size={24} className="rotate-180" />
+      <ArrowUp size={18} />
     </button>
   );
 };

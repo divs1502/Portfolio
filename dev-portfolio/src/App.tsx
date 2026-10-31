@@ -3,7 +3,6 @@ import './index.css';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
-// Components
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
@@ -14,62 +13,36 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-// Hooks
 import { useTypingEffect } from './hooks/useTypingEffect';
 import { useScrollTracking } from './hooks/useScrollTracking';
-
-// Utils
+import { useTheme } from './hooks/useTheme';
 import { scrollToSection } from './utils/scrollUtils';
-
-// Constants
 import { ROLES, SECTIONS } from './constants';
 
 const Portfolio = () => {
-  // Custom hooks
   const typedText = useTypingEffect(ROLES);
   const { activeSection, scrollY } = useScrollTracking(SECTIONS);
+  const { theme, toggle } = useTheme();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-800">
-      {/* Gentle background pattern */}
-      <div className="fixed inset-0 opacity-30">
-        <div className="absolute inset-0 bg-pattern" />
-      </div>
-
-      {/* Navigation */}
-      <Navigation 
-        activeSection={activeSection} 
-        scrollToSection={scrollToSection} 
+    <div className="min-h-screen bg-surface text-ink antialiased">
+      <Navigation
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+        theme={theme}
+        onThemeToggle={toggle}
       />
-
-      {/* Hero Section */}
-      <Hero 
-        typedText={typedText} 
-        scrollToSection={scrollToSection} 
+      <Hero
+        typedText={typedText}
+        scrollToSection={scrollToSection}
       />
-
-      {/* About Section */}
       <AboutSection />
-
-      {/* Skills Section */}
       <SkillsSection />
-
-      {/* Experience Section */}
       <ExperienceSection />
-
-      {/* Projects Section */}
       <ProjectsSection />
-
-      {/* Contact Section */}
       <ContactSection />
-
-      {/* Footer */}
       <Footer />
-
-      {/* Scroll to top button */}
       <ScrollToTop scrollY={scrollY} />
-
-      {/* Analytics & Speed Insights for Vercel*/}
       <SpeedInsights />
       <Analytics />
     </div>

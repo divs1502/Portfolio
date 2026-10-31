@@ -1,6 +1,7 @@
 export interface Experience {
   title: string;
   company: string;
+  companyFull: string;
   duration: string;
   location: string;
   type: string;
@@ -12,46 +13,51 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     title: "Software Engineer",
-    company: "Cybage Software",
-    duration: "Feb 2024 - Present",
-    location: "Pune, Maharashtra",
+    company: "RepSpark / Cybage",
+    companyFull: "RepSpark (B2B Wholesale SaaS) via Cybage Software",
+    duration: "Jan 2024 – Present",
+    location: "Pune, India",
     type: "Full-time",
-    description: "Working on a client based B2B clothing web application using React, .NET Core, GraphQL, and PostgreSQL. Focusing on creating scalable solutions for fashion industry business interactions.",
-    technologies: ["React", ".NET Core", "GraphQL", "PostgreSQL", "AWS", "GitHub"],
+    description: "Building scalable ERP integrations and full-stack features for a B2B wholesale SaaS platform, serving 15+ enterprise clients across Fortune 500 accounts.",
+    technologies: ["C# .NET 10", "React", "GraphQL", "AWS S3", "Parameter Store", "MSSQL", "NetSuite", "Shopify", "REST APIs", "SOAP"],
     achievements: [
-      "Built comprehensive B2B platform for fashion brands",
-      "On boarded new clients and integrate their systems with our platform",
-      "Implemented efficient GraphQL queries improving performance",
-      "Collaborated with cross-functional teams on feature delivery"
+      "Spearheaded SOAP-to-REST migration tool accelerating delivery across 15+ client pipelines",
+      "Built config-driven framework replacing hardcoded client logic; cut onboarding from 6 → 3.5 weeks",
+      "Engineered C# .NET 10 services processing 1,000+ daily transactions at 99.9% accuracy",
+      "Architected AWS S3 centralized logging across 25+ pipelines, reducing debug time by 60%",
+      "Modernized legacy WebApp with GraphQL across 10+ React components; page load improved 45%",
+      "Designed reusable GenAI skills & automated workflows, significantly boosting team throughput",
+      "Led 40+ client requirement sessions across 8 Fortune 500 accounts",
+      "Raised code quality 72% → 91%, cut production bugs by 45% via 100+ code reviews"
     ]
   },
   {
     title: "Software Engineering Trainee",
     company: "Cybage Software",
-    duration: "Nov 2023 - Jan 2024",
-    location: "Pune, Maharashtra",
+    companyFull: "Cybage Software Pvt. Ltd.",
+    duration: "Nov 2023 – Jan 2024",
+    location: "Pune, India",
     type: "Training",
-    description: "Completed comprehensive training program and developed a song application that won 2nd place in competitive coding event.",
-    technologies: [".NET Framework", "TypeScript", "Angular", "MySQL"],
+    description: "Intensive training in ASP.NET MVC, TypeScript, AngularJS, C#, and MSSQL. Built TuneSync — a full-stack music app with a 4-member team.",
+    technologies: ["ASP.NET MVC", "TypeScript", "AngularJS", "C#", "MSSQL"],
     achievements: [
-      "🏆 Secured 2nd place in competitive coding event",
-      "Successfully completed full-stack development training",
-      "Demonstrated strong team collaboration skills"
+      "Achieved 95% average assessment score across all training modules",
+      "TuneSync placed 2nd among 20+ competing teams in company-wide event"
     ]
   },
   {
-    title: "Software Development Intern",
+    title: "Software Development Engineer Intern",
     company: "Dalphus Solutions",
-    duration: "Feb 2023 - Jun 2023",
-    location: "Remote (US)",
+    companyFull: "Dalphus Solutions",
+    duration: "Feb 2023 – Jun 2023",
+    location: "Remote, US",
     type: "Internship",
-    description: "Developed hospital management system with EHR integration and telehealth solutions. Promoted to Team Lead during the internship.",
-    technologies: ["AngularJS", "Node.js", "Healthcare APIs", "MySQL"],
+    description: "Created Patient and Doctor Portal enabling 200+ users to access medical records and communicate with 15+ healthcare providers.",
+    technologies: ["Angular", "Node.js", "MySQL"],
     achievements: [
-      "Promoted to Team Lead position",
-      "Integrated electronic health records system",
-      "Developed patient and doctor portals",
-      "Implemented telehealth solutions"
+      "Reduced administrative overhead by 40% through portal automation",
+      "Promoted to Team Lead within 8 weeks; guided 4 teammates through agile sprints",
+      "Delivered 12+ features with 95% sprint completion rate"
     ]
   }
 ];

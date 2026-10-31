@@ -1,57 +1,58 @@
-import { Coffee } from 'lucide-react';
-import ProfileImage from './ProfileImage';
+const stats = [
+  { value: '3+', label: 'Years Experience' },
+  { value: '15+', label: 'Enterprise Clients' },
+  { value: '25+', label: 'Pipelines Managed' },
+  { value: '300+', label: 'Algo Challenges' },
+];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-white/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
-          <div className="w-20 h-1 bg-indigo-600 mx-auto"></div>
-        </div>
-        
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              I'm a dedicated Software Engineer with almost 3 years of experience at Cybage Software, where I've had the opportunity to work on both frontend and backend technologies. 
-              I believe in building digital products that are not only functional but also intuitive and user-centric.
+    <section id="about" className="py-24 border-t border-line">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+          {/* Left: Text */}
+          <div className="lg:col-span-3 space-y-4">
+            <p className="font-mono text-xs text-ink-subtle tracking-widest uppercase">About</p>
+            <h2 className="text-3xl font-bold text-ink tracking-tight text-balance">
+              Building systems that scale
+            </h2>
+            <p className="text-ink-muted leading-relaxed text-pretty">
+              Software Engineer with 3+ years of experience building scalable SaaS platforms,
+              ERP integrations, and full-stack applications. I specialize in C#/.NET, React, AWS,
+              SQL, and GraphQL — with a focus on config-driven architectures and enterprise-grade reliability.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Currently, I’m contributing to a B2B clothing platform that’s redefining how fashion brands connect and do business. 
-              I work across the full stack using multiple technologies focusing on writing clean, maintainable code and solving real-world problems.
-              I solve complex problems by writing clean, maintainable code that not only works but also provides a great user experience. I love to build products that are not only functional but also intuitive and user-centric
+            <p className="text-ink-muted leading-relaxed text-pretty">
+              Currently at RepSpark via Cybage Software, where I've led technical solutioning,
+              SOAP-to-REST migrations, and built reusable GenAI skills that significantly increased
+              team throughput across 15+ Fortune 500 client pipelines.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, reading tech blogs, 
-              or enjoying a good cup of coffee while brainstorming my next project.
+            <p className="text-ink-muted leading-relaxed text-pretty">
+              Outside of work, I'm active on competitive programming platforms — 5-star HackerRank,
+              top 5% globally, 300+ algorithmic challenges solved across LeetCode, GFG, and HackerRank.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-6">
-            {/* Profile Image for About Section */}
-            <div className="col-span-2 mb-6 flex justify-center">
-              <ProfileImage size="md" />
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">3</div>
-              <div className="text-gray-600">Years Experience</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">12+</div>
-              <div className="text-gray-600">Projects Completed</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">10+</div>
-              <div className="text-gray-600">Technologies</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">100+</div>
-              <div className="text-gray-600 flex items-center justify-center gap-1">
-                <Coffee size={16} />
-                Cups of Coffee
+
+            {/* Education */}
+            <div className="mt-6 pt-6 border-t border-line">
+              <p className="font-mono text-xs text-ink-subtle tracking-widest uppercase mb-3">Education</p>
+              <div>
+                <p className="text-sm font-medium text-ink">B.E. in Computer Technology</p>
+                <p className="text-sm text-ink-muted">Yeshwantrao Chavan College of Engineering, Nagpur</p>
+                <p className="font-mono text-xs text-ink-subtle mt-1">2019 – 2023 · CGPA 7.7</p>
               </div>
             </div>
+          </div>
+
+          {/* Right: Stats */}
+          <div className="lg:col-span-2 grid grid-cols-2 gap-3">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="ring-1 ring-line rounded-lg p-5 bg-surface-raised"
+              >
+                <div className="text-2xl font-bold text-ink tabular-nums mb-1">{stat.value}</div>
+                <div className="text-xs text-ink-muted">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

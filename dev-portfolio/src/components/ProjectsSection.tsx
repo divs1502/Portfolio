@@ -11,46 +11,34 @@ const ProjectsSection = () => {
 
   const getLinkIcon = (linkType?: string) => {
     switch (linkType) {
-      case 'github':
-        return <Github size={16} />;
-      case 'demo':
-        return <Eye size={16} />;
-      case 'coming-soon':
-        return <Clock size={16} />;
-      default:
-        return <ExternalLink size={16} />;
+      case 'github': return <Github size={14} />;
+      case 'demo': return <Eye size={14} />;
+      case 'coming-soon': return <Clock size={14} />;
+      default: return <ExternalLink size={14} />;
     }
   };
 
   const getLinkLabel = (linkType?: string) => {
     switch (linkType) {
-      case 'github':
-        return 'View on GitHub';
-      case 'demo':
-        return 'View Demo';
-      case 'coming-soon':
-        return 'Coming Soon';
-      default:
-        return 'View Project';
+      case 'github': return 'GitHub';
+      case 'demo': return 'Live Demo';
+      case 'coming-soon': return 'Coming Soon';
+      default: return 'View';
     }
   };
 
   const handleProjectClick = (project: any) => {
     if (project.linkType === 'coming-soon') {
-      setNotification({
-        message: 'This project is coming soon! Stay tuned for updates.',
-        type: 'info'
-      });
+      setNotification({ message: 'This project is coming soon! Stay tuned.', type: 'info' });
       return;
     }
-    
     if (project.link && project.link !== '#') {
       window.open(project.link, '_blank', 'noopener,noreferrer');
     }
   };
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-24 border-t border-line">
       {notification && (
         <Notification
           message={notification.message}
@@ -58,85 +46,69 @@ const ProjectsSection = () => {
           onClose={() => setNotification(null)}
         />
       )}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 bg-indigo-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Here are some of the projects I've worked on that showcase my skills and experience
-          </p>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
+          <p className="font-mono text-xs text-ink-subtle tracking-widest uppercase mb-3">Projects</p>
+          <h2 className="text-3xl font-bold text-ink tracking-tight text-balance">Featured Work</h2>
+          <p className="text-ink-muted mt-2 text-pretty">A selection of projects showcasing my technical range</p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className={`bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 group ${
-                project.linkType !== 'coming-soon' ? 'cursor-pointer hover:-translate-y-1' : ''
+            <div
+              key={index}
+              className={`ring-1 ring-line rounded-lg bg-surface-raised flex flex-col hover:ring-line-strong transition-all duration-150 ${
+                project.linkType !== 'coming-soon' ? 'cursor-pointer' : ''
               }`}
               onClick={() => project.linkType !== 'coming-soon' && handleProjectClick(project)}
             >
-              <div className="p-6">
+              <div className="p-5 flex flex-col flex-1">
+                {/* Top badges */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex gap-2">
+                  <div className="flex gap-1.5">
                     {project.award && (
-                      <span className="px-2 py-1 bg-yellow-100 text-yellow-600 text-xs rounded-full font-medium">
+                      <span className="px-2 py-0.5 text-xs font-mono ring-1 ring-amber-500/30 text-amber-700 dark:text-amber-400 rounded-full bg-amber-500/10 dark:bg-amber-500/5">
                         🏆 {project.award}
                       </span>
                     )}
                     {project.role && (
-                      <span className="px-2 py-1 bg-green-100 text-green-600 text-xs rounded-full font-medium">
+                      <span className="px-2 py-0.5 text-xs font-mono ring-1 ring-line text-ink-muted rounded-full">
                         {project.role}
                       </span>
                     )}
                   </div>
-                  <button 
-                    onClick={() => handleProjectClick(project)}
-                    className={`p-2 transition-colors ${
-                      project.linkType === 'coming-soon' 
-                        ? 'text-gray-300 cursor-not-allowed' 
-                        : 'text-gray-400 hover:text-indigo-600 cursor-pointer'
-                    }`}
+                  <button
+                    onClick={(e) => { e.stopPropagation(); handleProjectClick(project); }}
                     aria-label={getLinkLabel(project.linkType)}
                     disabled={project.linkType === 'coming-soon'}
+                    className={`p-1.5 rounded transition-colors duration-150 ${
+                      project.linkType === 'coming-soon'
+                        ? 'text-ink-subtle cursor-not-allowed'
+                        : 'text-ink-muted hover:text-ink'
+                    }`}
                   >
                     {getLinkIcon(project.linkType)}
                   </button>
                 </div>
-                
-                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-indigo-600 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
+
+                <h3 className="text-sm font-semibold text-ink mb-2 text-balance">{project.title}</h3>
+                <p className="text-xs text-ink-muted leading-relaxed flex-1 text-pretty">{project.description}</p>
+
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-1 mt-4">
                   {project.technologies.map((tech, i) => (
-                    <span key={i} className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+                    <span key={i} className="px-1.5 py-0.5 text-xs font-mono text-ink-subtle bg-surface ring-1 ring-line rounded">
                       {tech}
                     </span>
                   ))}
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className={`text-xs px-2 py-1 rounded-full ${getStatusColorClasses(project.status)}`}>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-line">
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-mono ${getStatusColorClasses(project.status)}`}>
                     {project.status}
                   </span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500">{project.type}</span>
-                    {project.linkType && (
-                      <span className={`text-xs px-2 py-1 rounded-full ${
-                        project.linkType === 'github' ? 'bg-gray-100 text-gray-600' :
-                        project.linkType === 'demo' ? 'bg-blue-100 text-blue-600' :
-                        project.linkType === 'coming-soon' ? 'bg-orange-100 text-orange-600' :
-                        'bg-gray-100 text-gray-600'
-                      }`}>
-                        {project.linkType === 'github' ? 'GitHub' :
-                         project.linkType === 'demo' ? 'Live Demo' :
-                         project.linkType === 'coming-soon' ? 'Coming Soon' :
-                         'External'}
-                      </span>
-                    )}
-                  </div>
+                  <span className="text-xs text-ink-subtle">{project.type}</span>
                 </div>
               </div>
             </div>
