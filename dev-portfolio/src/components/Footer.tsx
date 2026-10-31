@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-line text-center">
-          <p className="text-xs text-ink-subtle font-mono">© 2025 Divyesh Lahane · Built with React & TypeScript</p>
+          <p className="text-xs text-ink-subtle font-mono">© 2025 Divyesh Lahane </p>
         </div>
       </div>
     </footer>
