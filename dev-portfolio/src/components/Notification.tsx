@@ -14,7 +14,7 @@ const Notification = ({ message, type = 'info', duration = 3000, onClose }: Noti
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-      setTimeout(onClose, 300); // Wait for fade out animation
+      setTimeout(onClose, 200); // 200ms transition
     }, duration);
 
     return () => clearTimeout(timer);
@@ -23,46 +23,34 @@ const Notification = ({ message, type = 'info', duration = 3000, onClose }: Noti
   const getIcon = () => {
     switch (type) {
       case 'success':
-        return <CheckCircle size={20} className="text-green-500" />;
+        return <CheckCircle size={18} className="text-green-500 shrink-0 mt-0.5" />;
       case 'warning':
-        return <AlertCircle size={20} className="text-yellow-500" />;
+        return <AlertCircle size={18} className="text-yellow-500 shrink-0 mt-0.5" />;
       case 'error':
-        return <AlertCircle size={20} className="text-red-500" />;
+        return <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />;
       default:
-        return <Info size={20} className="text-blue-500" />;
-    }
-  };
-
-  const getBgColor = () => {
-    switch (type) {
-      case 'success':
-        return 'bg-green-50 border-green-200';
-      case 'warning':
-        return 'bg-yellow-50 border-yellow-200';
-      case 'error':
-        return 'bg-red-50 border-red-200';
-      default:
-        return 'bg-blue-50 border-blue-200';
+        return <Info size={18} className="text-accent shrink-0 mt-0.5" />;
     }
   };
 
   return (
     <div
-      className={`fixed top-4 right-4 z-[9999] max-w-sm w-full p-4 rounded-lg border shadow-lg transition-all duration-300 ${
-        isVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-      } ${getBgColor()}`}
+      className={`fixed top-5 right-5 z-[9999] max-w-sm w-full p-4 rounded-lg bg-surface-raised ring-1 ring-line shadow-lg transition-all duration-200 ${
+        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
+      }`}
     >
       <div className="flex items-start gap-3">
         {getIcon()}
         <div className="flex-1">
-          <p className="text-sm font-medium text-gray-900">{message}</p>
+          <p className="text-sm font-medium text-ink">{message}</p>
         </div>
         <button
           onClick={() => {
             setIsVisible(false);
-            setTimeout(onClose, 300);
+            setTimeout(onClose, 200);
           }}
-          className="text-gray-400 hover:text-gray-600 transition-colors"
+          aria-label="Close notification"
+          className="text-ink-subtle hover:text-ink transition-colors duration-150"
         >
           <X size={16} />
         </button>

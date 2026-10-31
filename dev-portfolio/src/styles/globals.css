@@ -1,66 +1,80 @@
-/* Custom scrollbar styles */
-::-webkit-scrollbar {
-  width: 8px;
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── Light mode (default) ───────────────────────────────────── */
+:root {
+  --surface:         #fafaf9;
+  --surface-raised:  #f2f1ef;
+  --surface-overlay: #e9e7e4;
+  --surface-rgb:     250 250 249;         /* for bg-surface/N opacity */
+  --line:            rgba(0,0,0,0.08);
+  --line-strong:     rgba(0,0,0,0.14);
+  --ink:             #1a1917;
+  --ink-muted:       #6b6860;
+  --ink-subtle:      #a09d98;
+  --accent:          #7c5c2e;
+  --accent-dim:      #9e7740;
+  /* Hover overlay — always contrast-safe */
+  --hover-fill:      rgba(0,0,0,0.05);
+  --active-fill:     rgba(0,0,0,0.08);
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
+/* ─── Dark mode ──────────────────────────────────────────────── */
+html.dark {
+  --surface:         #0f0f0f;
+  --surface-raised:  #161616;
+  --surface-overlay: #1c1c1c;
+  --surface-rgb:     15 15 15;
+  --line:            rgba(255,255,255,0.08);
+  --line-strong:     rgba(255,255,255,0.14);
+  --ink:             #f5f4f0;
+  --ink-muted:       #8a8a8a;
+  --ink-subtle:      #5a5a5a;
+  --accent:          #e8d5b7;
+  --accent-dim:      #c4a882;
+  --hover-fill:      rgba(255,255,255,0.05);
+  --active-fill:     rgba(255,255,255,0.08);
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #4f46e5, #7c3aed);
-  border-radius: 10px;
-}
+/* ─── Nav state utilities (theme-aware hover/active fills) ───── */
+.nav-item-active  { background-color: var(--active-fill); }
+.nav-item-hover:hover { background-color: var(--hover-fill); }
+.nav-backdrop { background-color: rgb(var(--surface-rgb) / 0.9); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #4338ca, #6d28d9);
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  /* Prevent flash — JS sets the class before first paint */
+  background-color: var(--surface);
+  color: var(--ink);
 }
 
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Theme transition — only on intentional toggle, not on page load */
+html.theme-ready * {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 10px;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-subtle); }
 
-/* Background pattern */
-.bg-pattern {
-  background-image: radial-gradient(circle at 25px 25px, rgba(99, 102, 241, 0.1) 2px, transparent 0);
-  background-size: 50px 50px;
-}
-
-/* Focus styles for accessibility */
+/* ─── Focus ──────────────────────────────────────────────────── */
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid #4f46e5;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* Reduced motion support */
+/* ─── Reduced motion ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }

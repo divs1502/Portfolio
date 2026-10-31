@@ -64,9 +64,9 @@ export const projects: Project[] = [
 
 export const getStatusColorClasses = (status: Project['status']): string => {
   const statusMap: Record<Project['status'], string> = {
-    'In Development': 'bg-orange-100 text-orange-600',
-    'Completed': 'bg-blue-100 text-blue-600',
-    'Deployed': 'bg-green-100 text-green-600'
+    'In Development': 'ring-1 ring-amber-500/30 text-amber-700 dark:text-amber-400 bg-amber-500/10 dark:bg-amber-500/5',
+    'Completed': 'ring-1 ring-sky-500/30 text-sky-700 dark:text-sky-400 bg-sky-500/10 dark:bg-sky-500/5',
+    'Deployed': 'ring-1 ring-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 dark:bg-emerald-500/5'
   };
   
   return statusMap[status];

@@ -1,4 +1,4 @@
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Globe } from 'lucide-react';
 import ProfileImage from './ProfileImage';
 
 interface HeroProps {
@@ -8,88 +8,110 @@ interface HeroProps {
 
 const Hero = ({ typedText, scrollToSection }: HeroProps) => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        {/* Profile Image */}
-                  <div className="mb-12">
-            <div className="mx-auto mb-8">
-              <ProfileImage size="lg" showFloatingElements={true} showStatus={true} isOnline={true} />
-            </div>
-          </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative pt-14">
+      <div className="max-w-3xl mx-auto px-4 text-center">
+        {/* Profile image */}
+        <div className="mb-8 flex justify-center">
+          <ProfileImage size="lg" showStatus={true} isOnline={true} />
+        </div>
 
-        {/* Main Content */}
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-800">
-          Hello, I'm <span className="text-indigo-600">Divyesh</span>
+        {/* Label */}
+        <p className="font-mono text-xs text-ink-muted tracking-widest uppercase mb-4">
+          Software Engineer · Pune, India
+        </p>
+
+        {/* Name */}
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-ink mb-4 text-balance">
+          Divyesh Lahane
         </h1>
-        
-        <div className="text-2xl md:text-3xl text-gray-600 mb-8 h-12 flex items-center justify-center">
-          <span className="mr-3">I'm a</span>
-          <span className="text-indigo-600 font-semibold min-w-[280px] text-left">
+
+        {/* Typing effect */}
+        <div className="h-8 flex items-center justify-center mb-6">
+          <span className="font-mono text-base text-ink-muted">
             {typedText}
-            <span className="animate-pulse text-indigo-400">|</span>
+            <span className="animate-blink text-accent ml-0.5">|</span>
           </span>
         </div>
-        <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-          Passionate Software Engineer with almost 3 years of experience at{" "}
+
+        {/* Summary */}
+        <p className="text-base text-ink-muted mb-10 max-w-2xl mx-auto leading-relaxed text-pretty">
+          3+ years building scalable SaaS platforms and ERP integrations with C#/.NET, React, AWS, and GraphQL.
+          Currently at{' '}
           <a
             href="https://www.linkedin.com/company/cybage/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600"
+            className="text-accent hover:text-accent-dim transition-colors duration-150 underline underline-offset-2"
           >
             Cybage Software
           </a>
-          , specializing in React, .NET, PostgreSQL and GraphQL. I love building solutions that make a difference.
+          {' '}serving enterprise clients across the RepSpark B2B platform.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
-          <button 
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-12">
+          <button
             onClick={() => scrollToSection('projects')}
-            className="px-8 py-4 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            className="px-6 py-2.5 bg-ink text-surface text-sm font-medium rounded-md hover:bg-ink/90 transition-all duration-150"
           >
-            View My Work
+            View Projects
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('contact')}
-            className="px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-lg font-medium hover:bg-indigo-600 hover:text-white transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            className="px-6 py-2.5 ring-1 ring-line-strong text-ink-muted text-sm font-medium rounded-md hover:text-ink hover:ring-line-strong transition-all duration-150"
           >
             Get In Touch
           </button>
         </div>
 
         {/* Social Links */}
-        <div className="flex justify-center gap-6">
-          <a 
-            href="https://github.com/divs1502/" 
-            target="_blank" 
+        <div className="flex justify-center gap-4">
+          <a
+            href="https://github.com/divs1502/"
+            target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-white rounded-full shadow-md text-gray-600 hover:text-indigo-600 hover:shadow-lg transition-all transform hover:-translate-y-1"
             aria-label="GitHub Profile"
+            className="p-2 text-ink-subtle hover:text-ink transition-colors duration-150"
           >
-            <Github size={24} />
+            <Github size={20} />
           </a>
-          <a 
-            href="https://www.linkedin.com/in/divyesh-lahane/" 
-            target="_blank" 
+          <a
+            href="https://www.linkedin.com/in/divyesh-lahane/"
+            target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-white rounded-full shadow-md text-gray-600 hover:text-blue-600 hover:shadow-lg transition-all transform hover:-translate-y-1"
             aria-label="LinkedIn Profile"
+            className="p-2 text-ink-subtle hover:text-ink transition-colors duration-150"
           >
-            <Linkedin size={24} />
+            <Linkedin size={20} />
           </a>
-          <a 
-            href="mailto:divyeshlahane15@gmail.com" 
-            className="p-3 bg-white rounded-full shadow-md text-gray-600 hover:text-indigo-600 hover:shadow-lg transition-all transform hover:-translate-y-1"
+          <a
+            href="mailto:divyeshlahane15@gmail.com"
             aria-label="Send Email"
+            className="p-2 text-ink-subtle hover:text-ink transition-colors duration-150"
           >
-            <Mail size={24} />
+            <Mail size={20} />
+          </a>
+          <a
+            href="https://portfolio-divyesh.cloud/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Portfolio Website"
+            className="p-2 text-ink-subtle hover:text-ink transition-colors duration-150"
+          >
+            <Globe size={20} />
           </a>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown size={32} className="text-indigo-400" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <button
+          onClick={() => scrollToSection('about')}
+          aria-label="Scroll to About section"
+          className="p-2 text-ink-subtle hover:text-ink-muted transition-colors duration-150 animate-bounce"
+        >
+          <ArrowDown size={18} />
+        </button>
       </div>
     </section>
   );

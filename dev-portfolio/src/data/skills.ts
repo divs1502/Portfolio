@@ -1,35 +1,48 @@
-export interface Skill {
-  name: string;
-  level: number;
+export interface SkillGroup {
   category: string;
-  color: string;
+  icon: string;
+  skills: string[];
 }
 
-export const skills: Skill[] = [
-  { name: "React", level: 90, category: "Frontend", color: "blue" },
-  { name: "JavaScript", level: 88, category: "Frontend", color: "yellow" },
-  { name: "TypeScript", level: 85, category: "Frontend", color: "blue" },
-  { name: "Angular", level: 82, category: "Frontend", color: "red" },
-  { name: ".NET Core", level: 88, category: "Backend", color: "purple" },
-  { name: "ASP.NET", level: 85, category: "Backend", color: "blue" },
-  { name: "GraphQL", level: 80, category: "Backend", color: "pink" },
-  { name: "SQL Server", level: 83, category: "Database", color: "gray" },
-  { name: "PostgreSQL", level: 78, category: "Database", color: "blue" },
-  { name: "GitHub", level: 90, category: "Tools", color: "gray" },
-  { name: "AWS", level: 70, category: "Tools", color: "orange" },
-  { name: "S3", level: 75, category: "Tools", color: "yellow" }
+export const skillGroups: SkillGroup[] = [
+  {
+    category: "Languages",
+    icon: "{ }",
+    skills: ["C#", "JavaScript", "TypeScript", "Python", "SQL", "C", "C++"]
+  },
+  {
+    category: "Backend",
+    icon: "⚙",
+    skills: [".NET 6/7/8/10", "REST APIs", "SOAP", "GraphQL", "Web API", "Entity Framework", "ADO.NET"]
+  },
+  {
+    category: "Frontend",
+    icon: "◻",
+    skills: ["React.js", "Angular", "Bootstrap", "jQuery"]
+  },
+  {
+    category: "AI & Automation",
+    icon: "◈",
+    skills: ["Applied GenAI Tooling", "Reusable AI Skills & Agents", "Workflow Automation", "Prompt Engineering", "AI-Assisted Code Governance"]
+  },
+  {
+    category: "Cloud & DevOps",
+    icon: "☁",
+    skills: ["AWS S3", "Parameter Store", "CI/CD", "Git", "GitHub", "Visual Studio", "VS Code"]
+  },
+  {
+    category: "Databases",
+    icon: "▤",
+    skills: ["MSSQL", "PostgreSQL", "MySQL"]
+  },
+  {
+    category: "Enterprise Integrations",
+    icon: "⇄",
+    skills: ["NetSuite", "Shopify", "AIMS360", "SYSPRO", "Apparel Magic", "SOAP-to-REST Migration"]
+  },
+  {
+    category: "Leadership",
+    icon: "◎",
+    skills: ["Technical Solutioning", "Effort Estimation", "Code Review", "Client Collaboration", "Team Mentoring", "Agile Delivery"]
+  }
 ];
-
-export const getSkillColorClasses = (color: string): string => {
-  const colorMap: Record<string, string> = {
-    blue: 'from-blue-500 to-blue-600',
-    yellow: 'from-yellow-500 to-yellow-600',
-    red: 'from-red-500 to-red-600',
-    purple: 'from-purple-500 to-purple-600',
-    pink: 'from-pink-500 to-pink-600',
-    orange: 'from-orange-500 to-orange-600',
-    gray: 'from-gray-500 to-gray-600'
-  };
-  
-  return colorMap[color] || 'from-indigo-500 to-indigo-600';
-};

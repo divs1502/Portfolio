@@ -1,34 +1,37 @@
-import { skills, getSkillColorClasses } from '../data/skills';
+import { skillGroups } from '../data/skills';
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Technical Skills</h2>
-          <div className="w-20 h-1 bg-indigo-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Here are the technologies I work with to bring ideas to life
+    <section id="skills" className="py-24 border-t border-line">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
+          <p className="font-mono text-xs text-ink-subtle tracking-widest uppercase mb-3">Skills</p>
+          <h2 className="text-3xl font-bold text-ink tracking-tight text-balance">Technical Expertise</h2>
+          <p className="text-ink-muted mt-2 text-pretty">
+            Technologies and practices I use to build production systems
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <div key={skill.name} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-gray-800">{skill.name}</h3>
-                <span className="text-sm text-indigo-600 font-medium">{skill.level}%</span>
+        <div className="grid md:grid-cols-2 gap-4">
+          {skillGroups.map((group) => (
+            <div
+              key={group.category}
+              className="ring-1 ring-line rounded-lg p-5 bg-surface-raised hover:ring-line-strong transition-all duration-150"
+            >
+              <div className="flex items-center gap-2.5 mb-4">
+                <span className="font-mono text-sm text-accent">{group.icon}</span>
+                <h3 className="text-sm font-semibold text-ink">{group.category}</h3>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
-                <div 
-                  className={`h-3 bg-gradient-to-r ${getSkillColorClasses(skill.color)} rounded-full transition-all duration-1000 ease-out`}
-                  style={{ 
-                    width: `${skill.level}%`,
-                    animationDelay: `${index * 0.1}s`
-                  }}
-                ></div>
+              <div className="flex flex-wrap gap-1.5">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2 py-1 text-xs text-ink-muted bg-surface rounded ring-1 ring-line font-mono"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
-              <div className="text-sm text-gray-500">{skill.category}</div>
             </div>
           ))}
         </div>
